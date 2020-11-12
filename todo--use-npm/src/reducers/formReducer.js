@@ -30,6 +30,15 @@ export const formReducer = (state,action)=>{
                     }
                 })
             }
+        case 'ADD_TASK':
+            return{
+                ...state,
+                tasks: [...state.tasks,action.payload]
+            }
+        case 'CLEAR_COMPLETED':
+            return{
+                tasks: state.tasks.filter(task=>!task.completed)
+            }
         default:
             return {
                 state
